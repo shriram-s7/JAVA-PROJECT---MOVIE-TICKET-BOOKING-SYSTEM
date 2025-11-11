@@ -453,7 +453,7 @@ class BookingPage extends JPanel {
         for (char r = 'A'; r <= 'F'; r++) {
             for (int c = 1; c <= 10; c++) {
                 String id = "" + r + c;
-                final int price = (r <= 'B') ? 300 : (r <= 'D' ? 200 : 120);
+                final int price = (r <= 'B') ? 120 : (r <= 'D' ? 200 : 300);
                 final Color color = (r <= 'B') ? new Color(210, 4, 45) : (r <= 'D' ? new Color(255, 191, 0) : new Color(0, 150, 136));
                 DatabaseManager.Seat seat = new DatabaseManager.Seat(id, "", price);
                 allSeats.put(id, seat);
