@@ -57,7 +57,6 @@ public class MovieTicketBookingSystem {
         userLbl.setForeground(Color.WHITE);
         userLbl.setFont(new Font("Segoe UI", Font.PLAIN, 16));
         loginPanel.add(userLbl, gbc);
-
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.LINE_START;
         userField = new JTextField(15);
