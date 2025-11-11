@@ -1,5 +1,4 @@
 package src;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -8,50 +7,35 @@ import java.awt.event.ActionEvent;
 import java.util.*;
 import java.util.List;
 import java.util.Set;
-
 public class MovieTicketBookingSystem {
     static JFrame frame;
     static CardLayout cardLayout;
     static JPanel mainPanel;
     static String currentUser = "";
-
     static JTextField userField;
     static JPasswordField passField;
-
     static Vector<String> movieModel;
     static Vector<String> timeModel;
-
     public static void main(String[] args) {
         DatabaseManager.initializeDatabase();
-
         movieModel = DatabaseManager.loadMovies();
         timeModel = DatabaseManager.loadShowtimes();
-
         SwingUtilities.invokeLater(() -> {
             frame = new JFrame("BookMyShow Deluxe");
             frame.setSize(1400, 800);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setLocationRelativeTo(null);
-
             cardLayout = new CardLayout();
             mainPanel = new JPanel(cardLayout);
-
             JPanel userLoginPanel = createUserLoginPage();
             JPanel adminLoginPanel = createAdminLoginPage();
-
             mainPanel.add(userLoginPanel, "UserLogin");
             mainPanel.add(adminLoginPanel, "AdminLogin");
-
             frame.add(mainPanel);
             cardLayout.show(mainPanel, "UserLogin");
             frame.setVisible(true);
         });
     }
-
-    // --- createUserLoginPage() and createAdminLoginPage() omitted for brevity here;
-    // keep your existing implementations for login/signup logic (no change required).
-    // For brevity in this example I will only include AdminPage/BookingPage classes that we edited.
-
     static JPanel createUserLoginPage() {
         // (unchanged) copy your existing user login implementation here
         JPanel loginPanel = new JPanel(new GridBagLayout());
@@ -61,7 +45,6 @@ public class MovieTicketBookingSystem {
         gbc.gridwidth = 2;
         gbc.gridx = 0;
         gbc.gridy = 0;
-
         JLabel title = new JLabel("BookMyShow Deluxe");
         title.setFont(new Font("Segoe UI", Font.BOLD, 32));
         title.setForeground(Color.WHITE);
